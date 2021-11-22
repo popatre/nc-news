@@ -1,15 +1,6 @@
-import { useEffect, useState } from "react";
-import { getAllTopics } from "../utils/api";
 import { Link } from "react-router-dom";
 
-export default function Home() {
-    const [topics, setTopics] = useState([]);
-    useEffect(() => {
-        getAllTopics().then((topics) => {
-            setTopics(topics);
-        });
-    }, []);
-
+export default function Home({ topics, setTopics }) {
     return (
         <section className="home">
             <header className="home__header">

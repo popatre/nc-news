@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Header from "../Header";
 import ArticleGrid from "../ArticleGrid";
 
-export default function Articles() {
+export default function Articles({ topics }) {
     const { slug } = useParams();
     let topic = "";
     if (slug === "all") {
@@ -15,7 +15,7 @@ export default function Articles() {
     return (
         <section className="articles">
             <Header title={slug} />
-            <ArticleGrid topic={topic} />
+            <ArticleGrid topic={topic} topics={topics} />
         </section>
     );
 }

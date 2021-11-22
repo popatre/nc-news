@@ -3,7 +3,7 @@ export default function ArticleCard({ articles }) {
         <div className="article-card__info">
             {articles.map((article) => {
                 return (
-                    <>
+                    <div key={article.article_id}>
                         <p className="article-card__title">{article.title}</p>
                         <p className="article-card__author">
                             Author: {article.author}
@@ -17,7 +17,7 @@ export default function ArticleCard({ articles }) {
                         <p className="article-card__comments">
                             Comments: {article.comment_count}
                         </p>
-                    </>
+                    </div>
                 );
             })}
         </div>
