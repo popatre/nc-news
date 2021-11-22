@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 
-import Header from "../Header";
-import ArticleGrid from "../ArticleGrid";
+import Header from "../components/Header";
+import ArticleGrid from "../components/ArticleGrid";
 
 export default function Articles({ topics }) {
     const { slug } = useParams();

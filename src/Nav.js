@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 export default function NavbarComp() {
     return (
         <nav>
-            <Navbar bg="warning" expand="lg" fixed="top">
+            <Navbar bg="warning" expand="lg">
                 <Navbar.Brand>
                     <Link to="/" className="Nav__link">
                         NC News <i class="fas fa-globe-americas fa-2x"></i>

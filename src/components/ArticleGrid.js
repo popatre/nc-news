@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import TopicSelect from "./TopicSelect";
-import { getAllArticles } from "./utils/api";
+import { getAllArticles } from "../utils/api";
 
 export default function ArticleGrid({ topic, topics }) {
     const [articles, setArticles] = useState([]);
