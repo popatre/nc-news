@@ -1,6 +1,6 @@
 import "./App.scss";
 import { getAllTopics } from "./utils/api";
-import Nav from "./Nav";
+import NavbarComp from "./Nav";
 import { useState, useEffect } from "react";
 import Home from "./views/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -16,7 +16,7 @@ function App() {
     }, []);
     return (
         <BrowserRouter>
-            <Nav />
+            <NavbarComp />
             <div className="App">
                 <Routes>
                     <Route
