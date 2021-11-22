@@ -26,10 +26,6 @@ export default function TopicSelect({ topics }) {
                         </option>
                     );
                 })}
-
-                {/* <option value="Football">Electronics</option>
-                <option value="Clothing">Clothing</option>
-                <option value="Household">Household</option> */}
             </select>
         </form>
     );
