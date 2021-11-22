@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import TopicCard from "../components/TopicCard";
+
 export default function Home({ topics, setTopics }) {
     return (
         <section className="home">
@@ -9,17 +11,21 @@ export default function Home({ topics, setTopics }) {
             </header>
             <main>
                 <Link to={`/topics/all/articles`}>
-                    <div className="topic__card">
-                        <h2>All topics</h2>
-                        <p>View all the topics available</p>
-                    </div>
+                    <TopicCard
+                        slug="All Articles"
+                        description="View all the articles available for every topic"
+                    />
                 </Link>
+
                 {topics.map((topic) => {
                     return (
-                        <div key={topic.slug} className="topic__card">
-                            <h2>{topic.slug}</h2>
-                            <p>{topic.description}</p>
-                        </div>
+                        <Link to={`/topics/${topic.slug}/articles`}>
+                            <TopicCard
+                                key={topic.slug}
+                                slug={topic.slug}
+                                description={topic.description}
+                            />
+                        </Link>
                     );
                 })}
             </main>
