@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { Dropdown } from "react-bootstrap";
 
 export default function TopicSelect({ topics }) {
-    console.log(topics);
     return (
         <Dropdown>
             <Dropdown.Toggle variant="warning" id="dropdown-basic">
@@ -12,6 +11,7 @@ export default function TopicSelect({ topics }) {
                 {topics.map((topic) => {
                     return (
                         <Dropdown.Item
+                            key={topic.slug}
                             as={Link}
                             to={`/topics/${topic.slug}/articles`}
                         >
