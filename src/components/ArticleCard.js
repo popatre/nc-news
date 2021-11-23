@@ -11,7 +11,7 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-
+import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
 import CommentCard from "./CommentsCard";
@@ -61,29 +61,37 @@ export default function ArticleCard({
                 <CardActionArea
                     onClick={!!showContent ? null : handleExpandClick}
                 >
-                    <CardHeader
-                        avatar={
-                            <Avatar
-                                sx={{ bgcolor: red[500] }}
-                                aria-label="author"
-                            >
-                                {author[0].toUpperCase()}
-                            </Avatar>
-                        }
-                        title={title}
-                        subheader={`${author} posted on: ${created.slice(
-                            0,
-                            16
-                        )} in ${topic}`}
-                    />
+                    <Link
+                        key={article_id}
+                        to={`/topics/${topic}/articles/${article_id}`}
+                    >
+                        <CardHeader
+                            avatar={
+                                <Avatar
+                                    sx={{ bgcolor: red[500] }}
+                                    aria-label="author"
+                                >
+                                    {author[0].toUpperCase()}
+                                </Avatar>
+                            }
+                            title={title}
+                            subheader={`${author} posted on: ${created.slice(
+                                0,
+                                16
+                            )} in ${topic}`}
+                        />
 
-                    {!!showContent ? null : (
-                        <CardContent>
-                            <Typography variant="body2" color="text.secondary">
-                                {body}
-                            </Typography>
-                        </CardContent>
-                    )}
+                        {!!showContent ? null : (
+                            <CardContent>
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                >
+                                    {body}
+                                </Typography>
+                            </CardContent>
+                        )}
+                    </Link>
                 </CardActionArea>
                 <CardActions disableSpacing>
                     <IconButton aria-label="votes">

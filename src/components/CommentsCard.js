@@ -1,5 +1,4 @@
 import Typography from "@mui/material/Typography";
-import ArticleCard from "./ArticleCard";
 
 export default function CommentCard({ author, votes, body, created }) {
     return (
