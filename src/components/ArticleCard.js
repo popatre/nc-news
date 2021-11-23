@@ -14,6 +14,9 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import InsertCommentIcon from "@mui/icons-material/InsertComment";
+import CommentCard from "./CommentsCard";
+import { useEffect } from "react";
+import { getCommentsByArticleId } from "../utils/api";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -35,17 +38,29 @@ export default function ArticleCard({
     body,
     created,
     showContent,
+    article_id,
 }) {
     const [expanded, setExpanded] = useState(false);
+    const [comments, setComments] = useState([]);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
+    useEffect(() => {
+        if (article_id) {
+            getCommentsByArticleId(article_id).then((articles) => {
+                setComments(articles);
+            });
+        }
+    }, [article_id]);
+
     return (
         <div className="article-card__info">
             <Card sx={{ maxWidth: 345 }}>
-                <CardActionArea>
+                <CardActionArea
+                    onClick={!!showContent ? null : handleExpandClick}
+                >
                     <CardHeader
                         avatar={
                             <Avatar
@@ -92,11 +107,17 @@ export default function ArticleCard({
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph>Method:</Typography>
-                        <Typography paragraph>comments</Typography>
-                        <Typography paragraph>comments</Typography>
-                        <Typography paragraph>comments</Typography>
-                        <Typography>comments</Typography>
+                        {comments.map((comment) => {
+                            return (
+                                <CommentCard
+                                    key={comment.comment_id}
+                                    author={comment.author}
+                                    votes={comment.votes}
+                                    body={comment.body}
+                                    created={comment.created_at}
+                                />
+                            );
+                        })}
                     </CardContent>
                 </Collapse>
             </Card>
