@@ -16,6 +16,7 @@ import VotesButton from "./votesButton";
 import { incrementVote } from "../utils/api";
 import ArticleCardHeader from "./ArticleCardHeader";
 import { ExpandMore } from "../utils/ExpandMore";
+import CommentForm from "./CommentForm";
 
 export default function ArticleCard({
     author,
@@ -122,6 +123,7 @@ export default function ArticleCard({
                         </ExpandMore>
                     )}
                 </CardActions>
+                {!!showContent ? null : <CommentForm />}
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
                         {comments.map((comment) => {
