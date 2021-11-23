@@ -9,11 +9,18 @@ import ArticleView from "./views/ArticleView";
 
 function App() {
     const [topics, setTopics] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        getAllTopics().then((topics) => {
-            setTopics(topics);
-        });
+        setIsLoading(true);
+        getAllTopics()
+            .then((topics) => {
+                setTopics(topics);
+                setIsLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }, []);
     return (
         <BrowserRouter>
@@ -22,7 +29,13 @@ function App() {
                 <Routes>
                     <Route
                         path="/"
-                        element={<Home topics={topics} setTopics={setTopics} />}
+                        element={
+                            <Home
+                                topics={topics}
+                                setTopics={setTopics}
+                                isLoading={isLoading}
+                            />
+                        }
                     />
                     <Route
                         path="/topics/:slug/articles"

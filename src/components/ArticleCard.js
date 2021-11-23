@@ -13,10 +13,12 @@ import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import InsertCommentIcon from "@mui/icons-material/InsertComment";
+
 import CommentCard from "./CommentsCard";
+
 import { useEffect } from "react";
 import { getCommentsByArticleId } from "../utils/api";
+import CommentBadge from "./CommentButton";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -98,9 +100,19 @@ export default function ArticleCard({
                         <FavoriteIcon />
                         {votes}
                     </IconButton>
-                    <IconButton aria-label="comment">
-                        <InsertCommentIcon />
-                        {commentCount}
+                    <IconButton
+                        aria-label="comment"
+                        onClick={!!showContent ? null : handleExpandClick}
+                    >
+                        {!!showContent ? (
+                            <Link
+                                to={`/topics/${topic}/articles/${article_id}`}
+                            >
+                                <CommentBadge commentCount={commentCount} />{" "}
+                            </Link>
+                        ) : (
+                            <CommentBadge commentCount={commentCount} />
+                        )}
                     </IconButton>
                     {!!showContent ? null : (
                         <ExpandMore
