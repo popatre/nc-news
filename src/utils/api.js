@@ -29,3 +29,9 @@ export const getCommentsByArticleId = (id) => {
         return res.data.comments;
     });
 };
+
+export const incrementVote = (id, incObj) => {
+    return newsApi.patch(`/articles/${id}`, incObj).then((res) => {
+        return res.data.article;
+    });
+};

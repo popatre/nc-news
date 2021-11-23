@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { useState } from "react";
+
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import { CardActionArea } from "@mui/material";
@@ -10,15 +10,14 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-
 import CommentCard from "./CommentsCard";
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCommentsByArticleId } from "../utils/api";
 import CommentBadge from "./CommentButton";
+import VotesButton from "./votesButton";
+import { incrementVote } from "../utils/api";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -44,6 +43,8 @@ export default function ArticleCard({
 }) {
     const [expanded, setExpanded] = useState(false);
     const [comments, setComments] = useState([]);
+    const [addVote, setAddVote] = useState(0);
+    const [isError, setIsError] = useState(null);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -56,6 +57,17 @@ export default function ArticleCard({
             });
         }
     }, [article_id]);
+
+    const handleClick = () => {
+        setIsError(false);
+        setAddVote((prevVote) => prevVote + 1);
+        incrementVote(article_id, {
+            inc_votes: 1,
+        }).catch((err) => {
+            setIsError(true);
+            setAddVote((prevVote) => prevVote - 1);
+        });
+    };
 
     return (
         <div className="article-card__info">
@@ -96,9 +108,16 @@ export default function ArticleCard({
                     </Link>
                 </CardActionArea>
                 <CardActions disableSpacing>
-                    <IconButton aria-label="votes">
-                        <FavoriteIcon />
-                        {votes}
+                    <IconButton aria-label="votes" onClick={handleClick}>
+                        <VotesButton
+                            className="votes-btn"
+                            votes={votes + addVote}
+                        />
+                        {isError && (
+                            <p className="error-msg">
+                                Something went wrong, please try again
+                            </p>
+                        )}
                     </IconButton>
                     <IconButton
                         aria-label="comment"
