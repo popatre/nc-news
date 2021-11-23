@@ -1,15 +1,11 @@
-import { styled } from "@mui/material/styles";
-
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import { CardActionArea } from "@mui/material";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
+
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CommentCard from "./CommentsCard";
@@ -18,17 +14,8 @@ import { getCommentsByArticleId } from "../utils/api";
 import CommentBadge from "./CommentButton";
 import VotesButton from "./votesButton";
 import { incrementVote } from "../utils/api";
-
-const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-    transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.shortest,
-    }),
-}));
+import ArticleCardHeader from "./ArticleCardHeader";
+import { ExpandMore } from "../utils/ExpandMore";
 
 export default function ArticleCard({
     author,
@@ -79,20 +66,11 @@ export default function ArticleCard({
                         key={article_id}
                         to={`/topics/${topic}/articles/${article_id}`}
                     >
-                        <CardHeader
-                            avatar={
-                                <Avatar
-                                    sx={{ bgcolor: red[500] }}
-                                    aria-label="author"
-                                >
-                                    {author[0].toUpperCase()}
-                                </Avatar>
-                            }
+                        <ArticleCardHeader
+                            author={author}
+                            created={created}
+                            topic={topic}
                             title={title}
-                            subheader={`${author} posted on: ${created.slice(
-                                0,
-                                16
-                            )} in ${topic}`}
                         />
 
                         {!!showContent ? null : (
