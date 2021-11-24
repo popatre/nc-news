@@ -20,9 +20,11 @@ export default function Home({ topics, setTopics, isLoading }) {
 
                 {topics.map((topic) => {
                     return (
-                        <Link to={`/topics/${topic.slug}/articles`}>
+                        <Link
+                            to={`/topics/${topic.slug}/articles`}
+                            key={topic.slug}
+                        >
                             <TopicCard
-                                key={topic.slug}
                                 slug={topic.slug}
                                 description={topic.description}
                             />

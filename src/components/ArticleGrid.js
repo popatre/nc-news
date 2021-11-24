@@ -18,6 +18,7 @@ export default function ArticleGrid({ topic, topics }) {
                 {articles.map((article) => {
                     return (
                         <ArticleCard
+                            key={article.article_id}
                             author={article.author}
                             topic={article.topic}
                             commentCount={article.comment_count}
