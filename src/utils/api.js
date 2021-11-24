@@ -10,9 +10,9 @@ export const getAllTopics = () => {
     });
 };
 
-export const getAllArticles = (topic) => {
+export const getAllArticles = (topic, sort_by) => {
     return newsApi
-        .get("/articles", { params: { topic: topic } })
+        .get("/articles", { params: { topic: topic, sort_by: sort_by } })
         .then((res) => {
             return res.data.articles;
         });

@@ -2,18 +2,22 @@ import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 import TopicSelect from "./TopicSelect";
 import { getAllArticles } from "../utils/api";
+import SortBy from "./SortBy";
 
 export default function ArticleGrid({ topic, topics }) {
     const [articles, setArticles] = useState([]);
+    const [sort, setSort] = useState();
+
     useEffect(() => {
-        getAllArticles(topic).then((articles) => {
+        getAllArticles(topic, sort).then((articles) => {
             setArticles(articles);
         });
-    }, [topic]);
+    }, [topic, sort]);
 
     return (
         <main>
             <TopicSelect topics={topics} />
+            <SortBy setSort={setSort} />
             <div className="article-card">
                 {articles.map((article) => {
                     return (
