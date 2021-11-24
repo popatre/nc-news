@@ -1,11 +1,21 @@
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import {
+    CardHeader,
+    CardContent,
+    CardActions,
+    IconButton,
+    Typography,
+} from "@mui/material";
 import VotesButton from "./votesButton";
-export default function CommentsCardBody({ author, created, body, votes }) {
+import DeleteButton from "./DeleteButton";
+export default function CommentsCardBody({
+    author,
+    created,
+    body,
+    votes,
+    comment_id,
+    setComments,
+}) {
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardContent>
@@ -23,6 +33,7 @@ export default function CommentsCardBody({ author, created, body, votes }) {
                 <IconButton aria-label="votes">
                     <VotesButton votes={votes} />
                 </IconButton>
+                <DeleteButton id={comment_id} setList={setComments} />
             </CardActions>
         </Card>
     );

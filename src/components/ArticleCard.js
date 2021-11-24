@@ -112,6 +112,7 @@ export default function ArticleCard({
                             <CommentBadge commentCount={commentCount} />
                         )}
                     </IconButton>
+
                     {!!showContent ? null : (
                         <ExpandMore
                             expand={expanded}
@@ -136,6 +137,8 @@ export default function ArticleCard({
                                     votes={comment.votes}
                                     body={comment.body}
                                     created={comment.created_at}
+                                    comment_id={comment.comment_id}
+                                    setComments={setComments}
                                 />
                             );
                         })}
