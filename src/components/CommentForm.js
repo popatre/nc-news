@@ -7,13 +7,15 @@ import { postComment } from "../utils/api";
 
 import { useState } from "react";
 
-export default function CommentForm() {
+export default function CommentForm({ setComments }) {
     const { article_id } = useParams();
-
+    const [postSuccess, setPostSuccess] = useState(false);
     const { user } = useContext(UserContext);
     const [comment, setComment] = useState("");
+
     const expand = () => {
         setIsExpanded(true);
+        setPostSuccess(false);
     };
 
     const handleClickAway = () => {
@@ -29,12 +31,17 @@ export default function CommentForm() {
         <form
             onSubmit={(e) => {
                 e.preventDefault();
+
                 postComment(article_id, {
                     username: user.username,
                     body: comment,
                 })
-                    .then(() => {
+                    .then((res) => {
                         console.log("success");
+                        setComments((prevComments) => {
+                            return [...prevComments, res];
+                        });
+                        setPostSuccess(true);
                         setComment("");
                     })
                     .catch((err) => {
@@ -50,7 +57,9 @@ export default function CommentForm() {
                     value={comment}
                     id="comment"
                     name="comment"
-                    placeholder="Add a comment"
+                    placeholder={
+                        !postSuccess ? "Add a comment" : "Successfully posted!"
+                    }
                     rows={isExpanded ? 5 : 1}
                 ></textarea>
             </ClickAwayListener>
