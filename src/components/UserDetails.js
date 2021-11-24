@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 export default function UserDetails({ user }) {
     const [userInfo, setUserInfo] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    console.log(userInfo);
+
     useEffect(() => {
         setIsLoading(true);
         getUserDetails(user.username)
