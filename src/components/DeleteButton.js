@@ -9,7 +9,10 @@ export default function DeleteButton({ id, setList }) {
                 return item.comment_id !== id;
             });
         });
-        deleteComment(id);
+        deleteComment(id).catch((err) => {
+            console.log(err);
+            <p>error screen here</p>;
+        });
     };
 
     return (

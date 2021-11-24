@@ -1,4 +1,8 @@
 import Card from "@mui/material/Card";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
+import VotesButton from "./votesButton";
+import DeleteButton from "./DeleteButton";
 import {
     CardHeader,
     CardContent,
@@ -6,8 +10,7 @@ import {
     IconButton,
     Typography,
 } from "@mui/material";
-import VotesButton from "./votesButton";
-import DeleteButton from "./DeleteButton";
+
 export default function CommentsCardBody({
     author,
     created,
@@ -16,6 +19,8 @@ export default function CommentsCardBody({
     comment_id,
     setComments,
 }) {
+    const { user } = useContext(UserContext);
+
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardContent>
@@ -33,7 +38,9 @@ export default function CommentsCardBody({
                 <IconButton aria-label="votes">
                     <VotesButton votes={votes} />
                 </IconButton>
-                <DeleteButton id={comment_id} setList={setComments} />
+                {author === user.username ? (
+                    <DeleteButton id={comment_id} setList={setComments} />
+                ) : null}
             </CardActions>
         </Card>
     );
