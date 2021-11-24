@@ -35,3 +35,9 @@ export const incrementVote = (id, incObj) => {
         return res.data.article;
     });
 };
+
+export const getUserDetails = (username) => {
+    return newsApi.get(`/users/${username}`).then((res) => {
+        return res.data.users;
+    });
+};

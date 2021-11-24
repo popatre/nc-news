@@ -1,8 +1,12 @@
 import { Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Container } from "react-bootstrap";
+import { useContext } from "react";
+import { UserContext } from "./contexts/UserContext";
 
 export default function NavbarComp() {
+    const { user } = useContext(UserContext);
+
     return (
         <nav>
             <Navbar bg="warning" expand="lg">
@@ -29,8 +33,13 @@ export default function NavbarComp() {
                             <Nav.Item>
                                 {/* <Nav.Link eventKey="account"> */}
                                 <Link to="/account" className="Nav__link">
-                                    Account
+                                    <img
+                                        className="Navbar__avatar"
+                                        src={user.avatar_url}
+                                        alt={user.name}
+                                    />
                                 </Link>
+                                <p>{user.username}</p>
                                 {/* </Nav.Link> */}
                             </Nav.Item>
                         </Nav>

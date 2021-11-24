@@ -5,11 +5,14 @@ import { useState, useEffect } from "react";
 import Home from "./views/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Articles from "./views/Articles";
+import Account from "./views/Account";
 import ArticleView from "./views/ArticleView";
+// import { UserContext } from "./contexts/UserContext";
 
 function App() {
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    // const { user } = useContext(UserContext);
 
     useEffect(() => {
         setIsLoading(true);
@@ -46,6 +49,7 @@ function App() {
                         path="/topics/:slug/articles/:article_id"
                         element={<ArticleView />}
                     />
+                    <Route path="/account" element={<Account />} />
                 </Routes>
             </div>
         </BrowserRouter>

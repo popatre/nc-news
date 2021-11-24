@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import CircularProgress from "@mui/material/CircularProgress";
+
 import TopicCard from "../components/TopicCard";
+import Loading from "../components/Loading";
 
 export default function Home({ topics, setTopics, isLoading }) {
-    if (isLoading) return <CircularProgress color="success" />;
+    if (isLoading) return <Loading />;
     return (
         <section className="home">
             <header className="home__header">
