@@ -8,6 +8,7 @@ import Articles from "./views/Articles";
 import Account from "./views/Account";
 import ArticleView from "./views/ArticleView";
 import ErrorPage from "./views/ErrorPage";
+import UserArticles from "./views/UserArticles";
 
 function App() {
     const [topics, setTopics] = useState([]);
@@ -50,6 +51,10 @@ function App() {
                         element={<ArticleView />}
                     />
                     <Route path="/account" element={<Account />} />
+                    <Route
+                        path="/account/:username/articles"
+                        element={<UserArticles />}
+                    />
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>
             </div>

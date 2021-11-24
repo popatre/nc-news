@@ -9,6 +9,7 @@ import {
     Button,
     Typography,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function UserDetails({ user }) {
     const [userInfo, setUserInfo] = useState([]);
@@ -45,7 +46,11 @@ export default function UserDetails({ user }) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">My Articles</Button>
+                <Button size="small">
+                    <Link to={`/account/${userInfo.username}/articles`}>
+                        My Articles
+                    </Link>
+                </Button>
                 <Button size="small">My Comments</Button>
             </CardActions>
         </Card>

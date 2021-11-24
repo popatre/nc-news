@@ -51,6 +51,7 @@ export default function CommentForm({ setComments }) {
         >
             <ClickAwayListener onClickAway={handleClickAway}>
                 <textarea
+                    required
                     onClick={expand}
                     onChange={handleChange}
                     type="text"
