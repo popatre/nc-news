@@ -7,12 +7,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Articles from "./views/Articles";
 import Account from "./views/Account";
 import ArticleView from "./views/ArticleView";
-// import { UserContext } from "./contexts/UserContext";
+import ErrorPage from "./views/ErrorPage";
 
 function App() {
     const [topics, setTopics] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    // const { user } = useContext(UserContext);
 
     useEffect(() => {
         setIsLoading(true);
@@ -22,9 +21,10 @@ function App() {
                 setIsLoading(false);
             })
             .catch((err) => {
-                console.log(err);
+                // const error = err.response.status;
             });
     }, []);
+
     return (
         <BrowserRouter>
             <NavbarComp />
@@ -50,6 +50,7 @@ function App() {
                         element={<ArticleView />}
                     />
                     <Route path="/account" element={<Account />} />
+                    <Route path="*" element={<ErrorPage />} />
                 </Routes>
             </div>
         </BrowserRouter>
