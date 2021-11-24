@@ -41,3 +41,11 @@ export const getUserDetails = (username) => {
         return res.data.users;
     });
 };
+
+export const postComment = (article_id, postObj) => {
+    return newsApi
+        .post(`/articles/${article_id}/comments`, postObj)
+        .then((res) => {
+            return res.data.comment;
+        });
+};
