@@ -1,0 +1,19 @@
+.article {
+    &__single {
+        max-width: 900px;
+        width: 100%;
+        margin: 3em auto;
+    }
+    &__body p {
+        line-height: 1.8em;
+    }
+}
+
+.article__card {
+    &__info {
+        margin: 1em 0;
+    }
+}
+.article-card__info--link {
+    text-decoration: none;
+}

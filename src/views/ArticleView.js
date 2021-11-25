@@ -31,22 +31,24 @@ export default function ArticleView() {
         );
 
     return (
-        <div className="article__single">
-            {article.map((article) => {
-                return (
-                    <ArticleCard
-                        key={article.article_id}
-                        author={article.author}
-                        topic={article.topic}
-                        commentCount={article.comment_count}
-                        body={article.body}
-                        votes={article.votes}
-                        title={article.title}
-                        created={article.created_at}
-                        article_id={article.article_id}
-                    />
-                );
-            })}
-        </div>
+        <section className="article__single__viewer container">
+            <div className="article__single">
+                {article.map((article) => {
+                    return (
+                        <ArticleCard
+                            key={article.article_id}
+                            author={article.author}
+                            topic={article.topic}
+                            commentCount={article.comment_count}
+                            body={article.body}
+                            votes={article.votes}
+                            title={article.title}
+                            created={article.created_at}
+                            article_id={article.article_id}
+                        />
+                    );
+                })}
+            </div>
+        </section>
     );
 }

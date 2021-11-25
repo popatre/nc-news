@@ -8,6 +8,9 @@
         width: 80%;
         margin: 0 auto;
     }
+    .article__body p {
+        font-size: 1rem;
+    }
 }
 @include media-lg {
     .account__details.user-display {
@@ -45,6 +48,14 @@
         &__icon {
             transform: scale(1.4);
         }
+    }
+
+    .article__single {
+        width: 90%;
+    }
+
+    .article__body p {
+        font-size: 1.2rem;
     }
 }
 @include media-xl {

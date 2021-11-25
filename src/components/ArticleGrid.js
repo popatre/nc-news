@@ -5,6 +5,7 @@ import { getAllArticles } from "../utils/api";
 
 import ErrorPage from "../views/ErrorPage";
 import Loading from "./Loading";
+import Grid from "@mui/material/Grid";
 
 export default function ArticleGrid({ topic, sort }) {
     const [articles, setArticles] = useState([]);
@@ -36,22 +37,26 @@ export default function ArticleGrid({ topic, sort }) {
     return (
         <main>
             <div className="article-card">
-                {articles.map((article) => {
-                    return (
-                        <ArticleCard
-                            key={article.article_id}
-                            author={article.author}
-                            topic={article.topic}
-                            commentCount={article.comment_count}
-                            body={article.body}
-                            votes={article.votes}
-                            created={article.created_at}
-                            title={article.title}
-                            article_id={article.article_id}
-                            showContent="false"
-                        />
-                    );
-                })}
+                <Grid container rowSpacing={4} columnSpacing={4}>
+                    {articles.map((article) => {
+                        return (
+                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                                <ArticleCard
+                                    key={article.article_id}
+                                    author={article.author}
+                                    topic={article.topic}
+                                    commentCount={article.comment_count}
+                                    body={article.body}
+                                    votes={article.votes}
+                                    created={article.created_at}
+                                    title={article.title}
+                                    article_id={article.article_id}
+                                    showContent="false"
+                                />
+                            </Grid>
+                        );
+                    })}
+                </Grid>
             </div>
         </main>
     );

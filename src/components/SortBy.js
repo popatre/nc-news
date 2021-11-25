@@ -1,5 +1,4 @@
 import { Dropdown } from "react-bootstrap";
-import { useState } from "react";
 
 export default function SortBy({ setSort, setSortLabel, sortLabel }) {
     const handleChange = (e) => {

@@ -1,11 +1,13 @@
-import Card from "@mui/material/Card";
-import { CardActionArea } from "@mui/material";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
+import {
+    CardActionArea,
+    Card,
+    CardContent,
+    CardActions,
+    Collapse,
+    IconButton,
+    Typography,
+} from "@mui/material";
 
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CommentCard from "./CommentsCard";
@@ -59,11 +61,12 @@ export default function ArticleCard({
 
     return (
         <div className="article-card__info">
-            <Card sx={{ maxWidth: 345 }}>
+            <Card>
                 <CardActionArea
                     onClick={!!showContent ? null : handleExpandClick}
                 >
                     <Link
+                        className="article-card__info--link"
                         key={article_id}
                         to={`/topics/${topic}/articles/${article_id}`}
                     >
@@ -75,7 +78,7 @@ export default function ArticleCard({
                         />
 
                         {!!showContent ? null : (
-                            <CardContent>
+                            <CardContent className="article__body">
                                 <Typography
                                     variant="body2"
                                     color="text.secondary"
