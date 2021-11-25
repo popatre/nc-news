@@ -22,7 +22,7 @@ export default function CommentsCardBody({
     const { user } = useContext(UserContext);
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card className="comments__content">
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
                     {body}

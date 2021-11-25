@@ -17,3 +17,14 @@
 .article-card__info--link {
     text-decoration: none;
 }
+
+.comments__display {
+    max-width: 800px;
+    // width: 200%;
+    margin: 0 auto;
+}
+
+.comments__content {
+    width: 95%;
+    margin: 2em auto;
+}

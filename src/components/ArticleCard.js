@@ -130,8 +130,13 @@ export default function ArticleCard({
                 {!!showContent ? null : (
                     <CommentForm setComments={setComments} />
                 )}
-                <Collapse in={expanded} timeout="auto" unmountOnExit>
-                    <CardContent>
+                <Collapse
+                    className="comments__collapse"
+                    in={expanded}
+                    timeout="auto"
+                    unmountOnExit
+                >
+                    <CardContent className="comments__display">
                         {comments.map((comment) => {
                             return (
                                 <CommentCard
