@@ -60,100 +60,90 @@ export default function ArticleCard({
     };
 
     return (
-        <div className="article-card__info">
-            <Card>
-                <CardActionArea
-                    onClick={!!showContent ? null : handleExpandClick}
+        // <div className="article-card__info">
+        <Card style={{ width: "100%" }}>
+            <CardActionArea onClick={!!showContent ? null : handleExpandClick}>
+                <Link
+                    className="article-card__info--link"
+                    key={article_id}
+                    to={`/topics/${topic}/articles/${article_id}`}
                 >
-                    <Link
-                        className="article-card__info--link"
-                        key={article_id}
-                        to={`/topics/${topic}/articles/${article_id}`}
-                    >
-                        <ArticleCardHeader
-                            author={author}
-                            created={created}
-                            topic={topic}
-                            title={title}
-                        />
-
-                        {!!showContent ? null : (
-                            <CardContent className="article__body">
-                                <Typography
-                                    variant="body2"
-                                    color="text.secondary"
-                                >
-                                    {body}
-                                </Typography>
-                            </CardContent>
-                        )}
-                    </Link>
-                </CardActionArea>
-                <CardActions disableSpacing>
-                    <IconButton aria-label="votes" onClick={handleClick}>
-                        <VotesButton
-                            className="votes-btn"
-                            votes={votes + addVote}
-                        />
-                        {isError && (
-                            <p className="error-msg">
-                                Something went wrong, please try again
-                            </p>
-                        )}
-                    </IconButton>
-                    <IconButton
-                        aria-label="comment"
-                        onClick={!!showContent ? null : handleExpandClick}
-                    >
-                        {!!showContent ? (
-                            <Link
-                                to={`/topics/${topic}/articles/${article_id}`}
-                            >
-                                <CommentBadge commentCount={commentCount} />{" "}
-                            </Link>
-                        ) : (
-                            <CommentBadge commentCount={commentCount} />
-                        )}
-                    </IconButton>
+                    <ArticleCardHeader
+                        author={author}
+                        created={created}
+                        topic={topic}
+                        title={title}
+                    />
 
                     {!!showContent ? null : (
-                        <ExpandMore
-                            expand={expanded}
-                            onClick={handleExpandClick}
-                            aria-expanded={expanded}
-                            aria-label="show more"
-                        >
-                            <ExpandMoreIcon />
-                        </ExpandMore>
+                        <CardContent className="article__body">
+                            <Typography variant="body2" color="text.secondary">
+                                {body}
+                            </Typography>
+                        </CardContent>
                     )}
-                </CardActions>
-                {!!showContent ? null : (
-                    <CommentForm setComments={setComments} />
-                )}
-                <Collapse
-                    onClick={console.log("hello")}
-                    className="comments__collapse"
-                    in={expanded}
-                    timeout="auto"
-                    unmountOnExit
+                </Link>
+            </CardActionArea>
+            <CardActions disableSpacing>
+                <IconButton aria-label="votes" onClick={handleClick}>
+                    <VotesButton
+                        className="votes-btn"
+                        votes={votes + addVote}
+                    />
+                    {isError && (
+                        <p className="error-msg">
+                            Something went wrong, please try again
+                        </p>
+                    )}
+                </IconButton>
+                <IconButton
+                    aria-label="comment"
+                    onClick={!!showContent ? null : handleExpandClick}
                 >
-                    <CardContent className="comments__display">
-                        {comments.map((comment) => {
-                            return (
-                                <CommentCard
-                                    key={comment.comment_id}
-                                    author={comment.author}
-                                    votes={comment.votes}
-                                    body={comment.body}
-                                    created={comment.created_at}
-                                    comment_id={comment.comment_id}
-                                    setComments={setComments}
-                                />
-                            );
-                        })}
-                    </CardContent>
-                </Collapse>
-            </Card>
-        </div>
+                    {!!showContent ? (
+                        <Link to={`/topics/${topic}/articles/${article_id}`}>
+                            <CommentBadge commentCount={commentCount} />{" "}
+                        </Link>
+                    ) : (
+                        <CommentBadge commentCount={commentCount} />
+                    )}
+                </IconButton>
+
+                {!!showContent ? null : (
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon />
+                    </ExpandMore>
+                )}
+            </CardActions>
+            {!!showContent ? null : <CommentForm setComments={setComments} />}
+            <Collapse
+                onClick={console.log("hello")}
+                className="comments__collapse"
+                in={expanded}
+                timeout="auto"
+                unmountOnExit
+            >
+                <CardContent className="comments__display">
+                    {comments.map((comment) => {
+                        return (
+                            <CommentCard
+                                key={comment.comment_id}
+                                author={comment.author}
+                                votes={comment.votes}
+                                body={comment.body}
+                                created={comment.created_at}
+                                comment_id={comment.comment_id}
+                                setComments={setComments}
+                            />
+                        );
+                    })}
+                </CardContent>
+            </Collapse>
+        </Card>
     );
 }

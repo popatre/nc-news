@@ -40,7 +40,14 @@ export default function ArticleGrid({ topic, sort }) {
                 <Grid container rowSpacing={4} columnSpacing={4}>
                     {articles.map((article) => {
                         return (
-                            <Grid item xs={12} sm={12} md={6} lg={4}>
+                            <Grid
+                                item
+                                style={{ display: "flex", width: "100%" }}
+                                xs={12}
+                                sm={12}
+                                md={6}
+                                lg={4}
+                            >
                                 <ArticleCard
                                     key={article.article_id}
                                     author={article.author}
