@@ -37,13 +37,13 @@ export default function NavbarComp() {
                                         to="/account"
                                         className="Nav__link--signedin"
                                     >
+                                        <p>{user.username}</p>
                                         <img
                                             className="Navbar__avatar"
                                             src={user.avatar_url}
                                             alt={user.name}
                                         />
                                     </Link>
-                                    <p>{user.username}</p>
                                 </Nav.Item>
                             ) : (
                                 <Nav.Item>

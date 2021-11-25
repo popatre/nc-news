@@ -10,7 +10,8 @@ nav {
 
 .Navbar__avatar {
     max-width: 100%;
-    width: 20%;
+    width: 60px;
+    height: 50px;
     border-radius: 50%;
 }
 
@@ -25,7 +26,8 @@ nav {
     }
 }
 
-.Nav__link--signin {
+.Nav__link--signin,
+.Nav__link--signedin {
     text-decoration: none;
     display: flex;
     justify-content: center;
