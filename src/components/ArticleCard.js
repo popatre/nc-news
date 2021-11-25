@@ -131,6 +131,7 @@ export default function ArticleCard({
                     <CommentForm setComments={setComments} />
                 )}
                 <Collapse
+                    onClick={console.log("hello")}
                     className="comments__collapse"
                     in={expanded}
                     timeout="auto"
