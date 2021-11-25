@@ -1,8 +1,8 @@
 import { Dropdown } from "react-bootstrap";
 import { useState } from "react";
 
-export default function SortBy({ setSort }) {
-    const [sortLabel, setSortLabel] = useState();
+export default function SortBy({ setSort, setSortLabel, sortLabel }) {
+    // const [sortLabel, setSortLabel] = useState();
     const handleChange = (e) => {
         const { name, innerText } = e.target;
 

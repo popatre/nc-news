@@ -11,7 +11,7 @@ export default function ArticleGrid({ topic, topics }) {
     const [sort, setSort] = useState();
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-
+    const [sortLabel, setSortLabel] = useState();
     useEffect(() => {
         setIsLoading(true);
         getAllArticles(topic, sort)
@@ -36,7 +36,11 @@ export default function ArticleGrid({ topic, topics }) {
     return (
         <main>
             <TopicSelect topics={topics} />
-            <SortBy setSort={setSort} />
+            <SortBy
+                setSort={setSort}
+                setSortLabel={setSortLabel}
+                sortLabel={sortLabel}
+            />
             <div className="article-card">
                 {articles.map((article) => {
                     return (
