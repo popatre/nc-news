@@ -2,10 +2,48 @@
     .account__details.user-display {
         width: 50%;
     }
+
+    .nav-container {
+        max-width: 1200px;
+        width: 80%;
+        margin: 0 auto;
+    }
 }
 @include media-lg {
     .account__details.user-display {
         width: 500px;
+    }
+    .navbar__content {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .nav {
+        &__links {
+            text-align: center;
+            padding-top: 0;
+        }
+
+        &-item {
+            padding: 0.5em;
+        }
+        &__container {
+            max-width: 1220px;
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+    .Nav__link--signin {
+        align-items: center;
+        gap: 0.5em;
+        font-size: 1.3rem;
+        padding-top: 0.1em;
+        p {
+            margin-bottom: 0;
+        }
+        &__icon {
+            transform: scale(1.4);
+        }
     }
 }
 @include media-xl {

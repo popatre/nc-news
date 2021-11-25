@@ -1,9 +1,43 @@
+nav {
+    background: $main-color;
+}
+
 .Nav__link {
     text-decoration: none;
+    padding-top: 1em;
+    margin-left: 1em;
 }
 
 .Navbar__avatar {
     max-width: 100%;
     width: 20%;
     border-radius: 50%;
+}
+
+.nav {
+    &__links {
+        text-align: center;
+        padding-top: 2em;
+    }
+
+    &-item {
+        padding: 1.5em 0;
+    }
+}
+
+.Nav__link--signin {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    font-size: 1.5rem;
+
+    &__icon {
+        transform: scale(1.4);
+    }
+}
+
+.Nav__link--signin:hover {
+    color: black;
+    transform: scale(1.1);
 }
