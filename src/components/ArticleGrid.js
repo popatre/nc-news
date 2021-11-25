@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
-import TopicSelect from "./TopicSelect";
+
 import { getAllArticles } from "../utils/api";
-import SortBy from "./SortBy";
+
 import ErrorPage from "../views/ErrorPage";
 import Loading from "./Loading";
 
-export default function ArticleGrid({ topic, topics }) {
+export default function ArticleGrid({ topic, sort }) {
     const [articles, setArticles] = useState([]);
-    const [sort, setSort] = useState();
+
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
-    const [sortLabel, setSortLabel] = useState();
+
     useEffect(() => {
         setIsLoading(true);
         getAllArticles(topic, sort)
@@ -35,12 +35,6 @@ export default function ArticleGrid({ topic, topics }) {
 
     return (
         <main>
-            <TopicSelect topics={topics} />
-            <SortBy
-                setSort={setSort}
-                setSortLabel={setSortLabel}
-                sortLabel={sortLabel}
-            />
             <div className="article-card">
                 {articles.map((article) => {
                     return (
