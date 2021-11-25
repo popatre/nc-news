@@ -19,7 +19,7 @@ export default function Home({ topics, setTopics, isLoading }) {
                     </header>
                 </Grid>
             </Grid>
-            <main>
+            <main className="container">
                 <Grid container rowSpacing={6} columnSpacing={4}>
                     <Grid item xs={12} sm={6} md={6}>
                         <Link

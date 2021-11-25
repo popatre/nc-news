@@ -29,6 +29,7 @@ export default function CommentForm({ setComments }) {
     const [isExpanded, setIsExpanded] = useState(false);
     return (
         <form
+            className="comments__form"
             onSubmit={(e) => {
                 e.preventDefault();
 
