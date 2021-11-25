@@ -32,9 +32,13 @@ export default function UserDetails({ user }) {
 
     return (
         <div>
-            <h3> Welcome back, {userInfo.username}!</h3>
+            <h3 className="account__welcome">
+                {" "}
+                Welcome back, {userInfo.username}!
+            </h3>
             <Card className="account__details user-display container">
                 <CardMedia
+                    style={{ margin: "0 auto", display: "flex" }}
                     component="img"
                     image={userInfo.avatar_url}
                     alt="green iguana"

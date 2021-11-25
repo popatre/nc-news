@@ -6,6 +6,13 @@
         margin-top: 2em;
     }
 
+    &__welcome {
+        text-align: center;
+        margin: 1em 0;
+        font-family: $primary-header-font;
+        font-weight: bold;
+    }
+
     &__details {
         height: 100%;
         padding-top: 2em;
@@ -15,6 +22,10 @@
             margin-top: 2em;
             width: 80%;
             text-align: center;
+
+            img {
+                max-width: 40%;
+            }
         }
 
         &__button {
