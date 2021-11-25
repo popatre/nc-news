@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# NC News - Front End/UI React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+NC News is a news aggregation client demo, built in React.js, along with Material UI/React Bootstrap components and Sass/SCSS.
 
-## Available Scripts
+This project aims to demonstrate some of the skills learnt in front end part of the Northcoders bootcamp, mostly dedicated to React subjects including:
 
-In the project directory, you can run:
+-   React Virtual DOM
+-   React Lifecycle
+-   React Routing
+-   Optimistic Rendering
+-   Error Handling
+-   API requests and handling/displaying response data
 
-### `npm start`
+This front end application interacts with the back end NC News RESTful API created during the backend part of the course.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Details of the API may be found on Github: https://github.com/popatre/nc_news
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A hosted version of the API can be found at: https://jmg-nc-news.herokuapp.com/api
 
-### `npm test`
+## Using NC News
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A hosted version of the demo can be found at **\*\*\*\***LINK GOES HERE **\*\*\***
 
-### `npm run build`
+The site is responsive with a mobile first approach, and uses Material UI breakpoints for different screen sizes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Functionality
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Home and Topic Routes**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+On loading, the demo requests the current topics held on the backend API database. These are able to be selected to view the articles contained within each.
+The topic can also be changed from the dropdown menu inside each topic>article display page.
 
-### `npm run eject`
+On this page, the articles can sorted by:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-   date created
+-   votes
+-   comment count
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Authorised users may also vote to like an article by using the heart icon. The amount of votes is displayed next to the icon.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+A user can sign in my selecting the 'sign in' icon/text from the navbar. This account page will display the available usernames from the backend API.
+Once selected, that user is logged in and their details will display in the account page.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Individual Articles**
 
-## Learn More
+The Article component requests and displays an article based on the supplied route. It displays:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The full article & associated meta data:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-   author
+-   publication date
+-   topic
+-   vote and comment counts
+-   comments associated with the article
 
-### Code Splitting
+Authorised users may:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-   vote to like the article
+-   publish comments on the article
+-   delete their own comments
 
-### Analyzing the Bundle Size
+**Errors**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Bad route errors result in the relevant 400/404 page.
 
-### Making a Progressive Web App
+Bad requests include:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+-   Page route does not exist
+-   Topic does not exist
+-   Article Id does not exist
 
-### Advanced Configuration
+API errors result in the API error status code and message being displayed to the user.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Installing a local copy of NC News
 
-### Deployment
+These instructions will help you to get a copy of NC News up and running on your local machine for testing purposes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Installing
 
-### `npm run build` fails to minify
+Ensure you have [Node.js](https://nodejs.org/en/download/) installed
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Fork or clone the repository to you local machine: https://github.com/popatre/nc-news
+
+Inside this directory, install the decessary npm packages by running the following code:
+
+        $ npm install
+
+To start the application, run the following code in the terminal:
+
+        $ npm start
+
+_If an error occurs in any of the previous two steps, ensure you are in the nc-news directory_
+
+If successful, your browser should open http://localhost:3000.
+
+### Built using
+
+-   React.js
+-   Sass
+-   Material UI
+-   React bootstrap
+-   Axios
