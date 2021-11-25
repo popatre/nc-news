@@ -57,6 +57,9 @@
     .article__body p {
         font-size: 1.2rem;
     }
+    .css-46bh2p-MuiCardContent-root.article__body {
+        padding: 1em 4em;
+    }
 }
 @include media-xl {
     .account__details.user-display {
