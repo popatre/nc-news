@@ -1,4 +1,14 @@
 .home {
+    &__title {
+        font-family: $primary-header-font;
+        font-weight: bold;
+        margin-top: 1.5em;
+    }
+
+    &__subtitle {
+        font-family: $primary-header-font;
+        margin: 1.2em 0;
+    }
     &__links {
         text-decoration: none;
     }
