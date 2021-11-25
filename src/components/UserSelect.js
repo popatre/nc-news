@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllUsers } from "../utils/api";
 import UserCard from "./UserCard";
 import { getUserDetails } from "../utils/api";
+import Grid from "@mui/material/Grid";
 
 export default function UserSelect({ user, setUser }) {
     const LoginUser = (username) => {
@@ -25,17 +26,30 @@ export default function UserSelect({ user, setUser }) {
     }, []);
 
     return (
-        <div className="account__select">
-            <h2>Select a user</h2>
-            {registeredUsers.map((user) => {
-                return (
-                    <UserCard
-                        key={user.username}
-                        username={user.username}
-                        loginUser={LoginUser}
-                    />
-                );
-            })}
+        <div className="account__select container">
+            <Grid container rowSpacing={4} columnSpacing={4}>
+                <Grid item xs={12}>
+                    <h2 className="account__select-user">Select a user</h2>
+                </Grid>
+                {registeredUsers.map((user) => {
+                    return (
+                        <Grid
+                            key={user.username}
+                            item
+                            xs={12}
+                            sm={6}
+                            md={4}
+                            lg={4}
+                        >
+                            <UserCard
+                                key={user.username}
+                                username={user.username}
+                                loginUser={LoginUser}
+                            />
+                        </Grid>
+                    );
+                })}
+            </Grid>
         </div>
     );
 }

@@ -31,7 +31,7 @@ export default function UserDetails({ user }) {
     if (isLoading) return <Loading />;
 
     return (
-        <Card className="account__details" sx={{ maxWidth: 345 }}>
+        <Card className="account__details user-display container">
             <CardMedia
                 component="img"
                 image={userInfo.avatar_url}
@@ -45,13 +45,21 @@ export default function UserDetails({ user }) {
                     Name: {userInfo.username}
                 </Typography>
             </CardContent>
+
             <CardActions>
-                <Button size="small">
-                    <Link to={`/account/${userInfo.username}/articles`}>
+                <Button style={{ margin: "0 auto", display: "flex" }}>
+                    <Link
+                        className="account__details__links"
+                        to={`/account/${userInfo.username}/articles`}
+                    >
                         My Articles
                     </Link>
                 </Button>
-                <Button size="small">My Comments</Button>
+                <Button style={{ margin: "0 auto", display: "flex" }}>
+                    <Link className="account__details__links" to="/">
+                        My Comments
+                    </Link>
+                </Button>
             </CardActions>
         </Card>
     );

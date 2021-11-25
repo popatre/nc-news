@@ -1,0 +1,44 @@
+.account {
+    &__select-user {
+        text-align: center;
+        font-family: $primary-header-font;
+        font-weight: bold;
+        margin-top: 2em;
+    }
+
+    &__details {
+        height: 100%;
+        padding-top: 2em;
+
+        &.user-display {
+            font-family: $primary-header-font;
+            margin-top: 2em;
+            width: 80%;
+            text-align: center;
+        }
+
+        &__button {
+            height: 140%;
+        }
+
+        &__links {
+            text-decoration: none;
+            width: 100;
+            margin: 0 auto;
+        }
+    }
+
+    &__select-icon {
+        text-align: center;
+        transform: scale(2.8);
+    }
+
+    &__select-username {
+        text-align: center;
+        padding: 1.5em 0;
+    }
+}
+
+.account__details__links {
+    text-align: center;
+}

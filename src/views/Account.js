@@ -5,7 +5,7 @@ import UserDetails from "../components/UserDetails";
 import UserSelect from "../components/UserSelect";
 export default function Account() {
     const { user, setUser } = useContext(UserContext);
-    console.log(user);
+
     return (
         <section className="account">
             {!!user.username ? (

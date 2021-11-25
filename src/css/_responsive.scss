@@ -1,0 +1,15 @@
+@include media-md {
+    .account__details.user-display {
+        width: 50%;
+    }
+}
+@include media-lg {
+    .account__details.user-display {
+        width: 500px;
+    }
+}
+@include media-xl {
+    .account__details.user-display {
+        width: 550px;
+    }
+}

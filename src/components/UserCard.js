@@ -14,13 +14,19 @@ export default function UserCard({ username, loginUser }) {
     };
     return (
         <Card className="account__details" sx={{ maxWidth: 345 }}>
-            <CardActionArea onClick={handleClick}>
+            <CardActionArea
+                className="account__details__button"
+                onClick={handleClick}
+            >
                 <CardMedia className="account__select-icon" alt="user-icon">
                     <PersonIcon />
                 </CardMedia>
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Username: {username}
+                    <Typography
+                        className="account__select-username"
+                        variant="h5"
+                    >
+                        {username}
                     </Typography>
                 </CardContent>
             </CardActionArea>
