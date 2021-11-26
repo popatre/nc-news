@@ -20,7 +20,7 @@ export default function ArticleForm() {
     };
 
     return (
-        <form
+        <form className="articles__post__form"
             onSubmit={(e) => {
                 e.preventDefault();
                 postArticle({
@@ -36,16 +36,17 @@ export default function ArticleForm() {
                         console.log(err);
                     });
             }}
-        >
-            <label htmlFor="title">Title: </label>
+        ><div>
+           
             <input
                 onChange={handleChange}
                 id="title"
                 name="title"
                 value={article.title}
-                type="text"
+                type="text" placeholder="title"
                 required
             ></input>
+            </div>
             <textarea
                 onChange={handleChange}
                 required
@@ -56,7 +57,7 @@ export default function ArticleForm() {
                 placeholder="Your interesting article..."
                 rows="5"
             ></textarea>
-            <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+            <Button className="articles__post__button" type="submit" variant="contained" endIcon={<SendIcon />}>
                 Submit Article
             </Button>
         </form>

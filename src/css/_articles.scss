@@ -63,4 +63,68 @@
             outline: none;
         }
     }
+    
 }
+
+.articles {
+    .post__button {
+        margin-bottom: 2em;
+    }
+
+    &__post{
+        &__container{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            
+            
+        }
+        &__form {
+            
+            display: flex;
+            flex-direction:column;
+            gap: 2em;
+            padding: 2em 6em;
+            border-radius:20px;
+            border: solid 5px $main-color;
+            
+
+            input {
+                border: none;
+  padding: 4px;
+  outline: none;
+  font-size: 1.2em;
+  font-family: inherit;
+  resize: none;
+       
+            }
+
+            textarea {
+                // background: #fadd84;
+                width: 100%;
+                border: none;
+                padding: 4px;
+                outline: none;
+                font-size: 1.2em;
+                font-family: inherit;
+                resize: none;
+            }
+            
+        }
+        &__button {
+            margin-bottom:2em;
+        }
+
+    }
+}
+
+
+.css-sghohy-MuiButtonBase-root-MuiButton-root.articles__post__button {
+    margin: 4em 0;
+    padding: 1.2em 1em;
+}
+
+
+
+
+   

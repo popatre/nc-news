@@ -5,7 +5,7 @@ import ArticleForm from "../components/ArticleForm";
 export default function PostArticle() {
     const { slug } = useParams();
     return (
-        <div>
+        <div className="container articles__post__container">
             <Header
                 style={{ textAlign: "center" }}
                 title="Posting in:"

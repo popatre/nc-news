@@ -71,3 +71,7 @@ export const postArticle = (postObj) => {
         return res.data.article;
     });
 };
+
+export const deleteArticle = (articleId) => {
+    return newsApi.delete(`/articles/${articleId}`);
+};

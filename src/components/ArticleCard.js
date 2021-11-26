@@ -21,6 +21,7 @@ import { incrementVote } from "../utils/api";
 import ArticleCardHeader from "./ArticleCardHeader";
 import { ExpandMore } from "../utils/ExpandMore";
 import CommentForm from "./CommentForm";
+import DeleteArticleButton from "./DeleteArticleButton";
 
 export default function ArticleCard({
     author,
@@ -32,6 +33,7 @@ export default function ArticleCard({
     created,
     showContent,
     article_id,
+    setArticles,
 }) {
     const [expanded, setExpanded] = useState(false);
     const [comments, setComments] = useState([]);
@@ -114,6 +116,12 @@ export default function ArticleCard({
                     ) : (
                         <CommentBadge commentCount={commentCount} />
                     )}
+                    {author === user.username ? (
+                        <DeleteArticleButton
+                            id={article_id}
+                            setList={setArticles}
+                        />
+                    ) : null}
                 </IconButton>
 
                 {!!showContent ? null : (

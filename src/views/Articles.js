@@ -7,11 +7,14 @@ import TopicSelect from "../components/TopicSelect";
 import ArticleGrid from "../components/ArticleGrid";
 import PostButton from "../components/Button";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 export default function Articles({ topics }) {
     const [sort, setSort] = useState();
     const [sortLabel, setSortLabel] = useState();
     const { slug } = useParams();
+    const { isLoggedIn } = useContext(UserContext);
     let topic = "";
     if (slug === "all") {
         topic = undefined;
@@ -25,22 +28,23 @@ export default function Articles({ topics }) {
                 <Grid item xs={12} style={{ textAlign: "center" }}>
                     <Header title={slug} />
                 </Grid>
-                <Grid item xs={12} style={{ textAlign: "center" }}>
+                <Grid item xs={6} style={{ textAlign: "center" }}>
                     <TopicSelect topics={topics} />
                 </Grid>
-                <Grid item xs={12} style={{ textAlign: "center" }}>
-                    <Link to={`/topics/${topic}/post`}>
-                        <PostButton />
-                    </Link>
-                </Grid>
-
-                <Grid item xs={12} style={{ textAlign: "center" }}>
+                <Grid item xs={6} style={{ textAlign: "center" }}>
                     <SortBy
                         setSort={setSort}
                         setSortLabel={setSortLabel}
                         sortLabel={sortLabel}
                     />
                 </Grid>
+                <Grid item xs={12} style={{ textAlign: "center" }}>
+                    {isLoggedIn? <Link to={`/topics/${topic}/post`}>
+                        <PostButton  />
+                    </Link> : null}
+                </Grid>
+
+                
             </Grid>
             <ArticleGrid topic={topic} topics={topics} sort={sort} />
         </section>

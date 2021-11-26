@@ -3,7 +3,7 @@ import SendIcon from "@mui/icons-material/Send";
 
 export default function PostButton() {
     return (
-        <Button variant="contained" endIcon={<SendIcon />}>
+        <Button className="post__button" variant="contained" endIcon={<SendIcon />}>
             Add Article
         </Button>
     );

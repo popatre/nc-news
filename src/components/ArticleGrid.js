@@ -60,6 +60,7 @@ export default function ArticleGrid({ topic, sort }) {
                                     title={article.title}
                                     article_id={article.article_id}
                                     showContent="false"
+                                    setArticles={setArticles}
                                 />
                             </Grid>
                         );
