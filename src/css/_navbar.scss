@@ -6,6 +6,10 @@ nav {
     text-decoration: none;
     padding-top: 1em;
     margin-left: 1em;
+    color: #f5f5f5;
+}
+.Nav__link:hover{
+    color:#39393A
 }
 
 .Navbar__avatar {
@@ -13,12 +17,14 @@ nav {
     width: 60px;
     height: 50px;
     border-radius: 50%;
+    
 }
 
 .nav {
     &__links {
         text-align: center;
         padding-top: 2em;
+        
     }
 
     &-item {
@@ -33,6 +39,7 @@ nav {
     justify-content: center;
     gap: 1em;
     font-size: 1.5rem;
+    color: #f5f5f5;
 
     &__icon {
         transform: scale(1.4);
@@ -40,6 +47,6 @@ nav {
 }
 
 .Nav__link--signin:hover {
-    color: black;
+    color: #39393A;
     transform: scale(1.1);
 }
