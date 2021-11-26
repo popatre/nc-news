@@ -5,6 +5,8 @@ import Header from "../components/Header";
 import SortBy from "../components/SortBy";
 import TopicSelect from "../components/TopicSelect";
 import ArticleGrid from "../components/ArticleGrid";
+import PostButton from "../components/Button";
+import { Link } from "react-router-dom";
 
 export default function Articles({ topics }) {
     const [sort, setSort] = useState();
@@ -26,6 +28,12 @@ export default function Articles({ topics }) {
                 <Grid item xs={12} style={{ textAlign: "center" }}>
                     <TopicSelect topics={topics} />
                 </Grid>
+                <Grid item xs={12} style={{ textAlign: "center" }}>
+                    <Link to={`/topics/${topic}/post`}>
+                        <PostButton />
+                    </Link>
+                </Grid>
+
                 <Grid item xs={12} style={{ textAlign: "center" }}>
                     <SortBy
                         setSort={setSort}

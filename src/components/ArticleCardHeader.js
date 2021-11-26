@@ -11,10 +11,7 @@ export default function ArticleCardHeader({ author, created, topic, title }) {
                 </Avatar>
             }
             title={title}
-            subheader={`${author} posted on: ${created.slice(
-                0,
-                16
-            )} in ${topic}`}
+            subheader={`${author} posted on: ${created} in ${topic}`}
         />
     );
 }

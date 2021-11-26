@@ -65,3 +65,9 @@ export const incrementCommentsVote = (id, incObj) => {
         return res.data.comment;
     });
 };
+
+export const postArticle = (postObj) => {
+    return newsApi.post(`/articles`, postObj).then((res) => {
+        return res.data.article;
+    });
+};
