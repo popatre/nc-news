@@ -19,7 +19,7 @@ A hosted version of the API can be found at: https://jmg-nc-news.herokuapp.com/a
 
 ## Using NC News
 
-A hosted version of the demo can be found at **\*\*\*\***LINK GOES HERE **\*\*\***
+A hosted version of the demo can be found at https://jmg-nc-news.netlify.app 
 
 The site is responsive with a mobile first approach, and uses Material UI breakpoints for different screen sizes.
 
