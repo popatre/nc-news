@@ -46,6 +46,7 @@ export default function CommentForm({ setComments }) {
                 })
                     .then((res) => {
                         console.log("success");
+                        console.log(res);
                         setComments((prevComments) => {
                             return [...prevComments, res];
                         });

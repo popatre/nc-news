@@ -37,7 +37,7 @@ export default function ArticleCard({
     const [comments, setComments] = useState([]);
     const [addVote, setAddVote] = useState(0);
     const [isError, setIsError] = useState(null);
-    const { user } = useContext(UserContext);
+    const { user, isLoggedIn } = useContext(UserContext);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -89,7 +89,7 @@ export default function ArticleCard({
             </CardActionArea>
             <CardActions disableSpacing>
                 <IconButton
-                    disabled={user.username === author || !user.username}
+                    disabled={user.username === author || !isLoggedIn}
                     aria-label="votes"
                     onClick={handleClick}
                 >
