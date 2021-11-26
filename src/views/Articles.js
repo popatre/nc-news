@@ -39,7 +39,8 @@ export default function Articles({ topics }) {
                     />
                 </Grid>
                 <Grid item xs={12} style={{ textAlign: "center" }}>
-                    {isLoggedIn? <Link to={`/topics/${topic}/post`}>
+                    {
+                    isLoggedIn&&topic!==undefined ? <Link to={`/topics/${topic}/post`} className="articles__post__link">
                         <PostButton  />
                     </Link> : null}
                 </Grid>
