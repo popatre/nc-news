@@ -59,3 +59,9 @@ export const getAllUsers = () => {
         return res.data.users;
     });
 };
+
+export const incrementCommentsVote = (id, incObj) => {
+    return newsApi.patch(`/comments/${id}`, incObj).then((res) => {
+        return res.data.comment;
+    });
+};
