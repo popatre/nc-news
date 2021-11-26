@@ -6,10 +6,14 @@ import Button from "@mui/material/Button";
 
 import SendIcon from "@mui/icons-material/Send";
 import { postArticle } from "../utils/api";
+import ArticleCard from './ArticleCard'
 
-export default function ArticleForm() {
+
+export default function ArticleForm({setPostSuccess, postSuccess}) {
     const { user } = useContext(UserContext);
     const [article, setArticle] = useState({ title: "", body: "" });
+     
+     const [postedArticle, setPostedArticle] = useState({})
     const { slug } = useParams();
 
     const handleChange = (e) => {
@@ -20,6 +24,17 @@ export default function ArticleForm() {
     };
 
     return (
+        postSuccess?<div>
+        
+        <ArticleCard author={postedArticle.author}
+                            topic={postedArticle.topic}
+                            commentCount={postedArticle.comment_count}
+                            body={postedArticle.body}
+                            votes={postedArticle.votes}
+                            title={postedArticle.title}
+                            created={postedArticle.created_at}
+                            article_id={postedArticle.article_id}/>
+                            </div> :
         <form className="articles__post__form"
             onSubmit={(e) => {
                 e.preventDefault();
@@ -30,6 +45,8 @@ export default function ArticleForm() {
                     body: article.body,
                 })
                     .then((res) => {
+                        setPostedArticle(res)
+                        setPostSuccess(true)
                         console.log(res);
                     })
                     .catch((err) => {
@@ -60,6 +77,8 @@ export default function ArticleForm() {
             <Button className="articles__post__button" type="submit" variant="contained" endIcon={<SendIcon />}>
                 Submit Article
             </Button>
+        
         </form>
+        
     );
 }
