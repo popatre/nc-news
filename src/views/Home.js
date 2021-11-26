@@ -10,7 +10,7 @@ export default function Home({ topics, setTopics, isLoading }) {
     return (
         <section className="home container">
             <Grid container rowSpacing={4} columnSpacing={4}>
-                <Grid item xs={12} style={{ "text-align": "center" }}>
+                <Grid item xs={12} style={{ textAlign: "center" }}>
                     <header className="home__header">
                         <h1 className="home__title"> Welcome to NC News!</h1>
                         <p className="home__subtitle">
@@ -35,7 +35,7 @@ export default function Home({ topics, setTopics, isLoading }) {
 
                     {topics.map((topic) => {
                         return (
-                            <Grid item xs={12} sm={6} md={6}>
+                            <Grid key={topic.slug} item xs={12} sm={6} md={6}>
                                 <Link
                                     className="home__links"
                                     to={`/topics/${topic.slug}/articles`}

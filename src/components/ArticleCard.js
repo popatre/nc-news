@@ -120,9 +120,9 @@ export default function ArticleCard({
                     </ExpandMore>
                 )}
             </CardActions>
+
             {!!showContent ? null : <CommentForm setComments={setComments} />}
             <Collapse
-                onClick={console.log("hello")}
                 className="comments__collapse"
                 in={expanded}
                 timeout="auto"

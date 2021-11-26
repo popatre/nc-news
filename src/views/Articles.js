@@ -20,13 +20,13 @@ export default function Articles({ topics }) {
     return (
         <section className="articles container">
             <Grid container rowSpacing={4} columnSpacing={4}>
-                <Grid item xs={12} style={{ "text-align": "center" }}>
+                <Grid item xs={12} style={{ textAlign: "center" }}>
                     <Header title={slug} />
                 </Grid>
-                <Grid item xs={12} style={{ "text-align": "center" }}>
+                <Grid item xs={12} style={{ textAlign: "center" }}>
                     <TopicSelect topics={topics} />
                 </Grid>
-                <Grid item xs={12} style={{ "text-align": "center" }}>
+                <Grid item xs={12} style={{ textAlign: "center" }}>
                     <SortBy
                         setSort={setSort}
                         setSortLabel={setSortLabel}

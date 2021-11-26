@@ -10,12 +10,19 @@ import { useState } from "react";
 export default function CommentForm({ setComments }) {
     const { article_id } = useParams();
     const [postSuccess, setPostSuccess] = useState(false);
-    const { user } = useContext(UserContext);
+    const { user, isLoggedIn } = useContext(UserContext);
     const [comment, setComment] = useState("");
 
     const expand = () => {
         setIsExpanded(true);
         setPostSuccess(false);
+    };
+    const handlePlaceholder = () => {
+        if (!isLoggedIn) {
+            return "Must be logged in to comment";
+        } else {
+            return !postSuccess ? "Add a comment" : "Successfully posted!";
+        }
     };
 
     const handleClickAway = () => {
@@ -59,10 +66,9 @@ export default function CommentForm({ setComments }) {
                     value={comment}
                     id="comment"
                     name="comment"
-                    placeholder={
-                        !postSuccess ? "Add a comment" : "Successfully posted!"
-                    }
+                    placeholder={handlePlaceholder()}
                     rows={isExpanded ? 5 : 1}
+                    disabled={!isLoggedIn}
                 ></textarea>
             </ClickAwayListener>
             <Zoom in={isExpanded}>

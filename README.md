@@ -81,7 +81,7 @@ Ensure you have [Node.js](https://nodejs.org/en/download/) installed
 
 Fork or clone the repository to you local machine: https://github.com/popatre/nc-news
 
-Inside this directory, install the decessary npm packages by running the following code:
+Inside this directory, install the necessary npm packages by running the following code:
 
         $ npm install
 

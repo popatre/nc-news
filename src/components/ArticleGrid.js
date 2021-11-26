@@ -41,8 +41,9 @@ export default function ArticleGrid({ topic, sort }) {
                     {articles.map((article) => {
                         return (
                             <Grid
+                                key={article.article_id}
                                 item
-                                style={{ display: "flex", width: "100%" }}
+                                style={{ display: "flex" }}
                                 xs={12}
                                 sm={12}
                                 md={6}
