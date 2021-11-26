@@ -7,6 +7,8 @@ import {
     IconButton,
     Typography,
 } from "@mui/material";
+import { useContext } from "react";
+import { UserContext } from "../contexts/UserContext";
 
 import { Link } from "react-router-dom";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -35,6 +37,7 @@ export default function ArticleCard({
     const [comments, setComments] = useState([]);
     const [addVote, setAddVote] = useState(0);
     const [isError, setIsError] = useState(null);
+    const { user } = useContext(UserContext);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -85,7 +88,11 @@ export default function ArticleCard({
                 </Link>
             </CardActionArea>
             <CardActions disableSpacing>
-                <IconButton aria-label="votes" onClick={handleClick}>
+                <IconButton
+                    disabled={user.username === author || !user.username}
+                    aria-label="votes"
+                    onClick={handleClick}
+                >
                     <VotesButton
                         className="votes-btn"
                         votes={votes + addVote}
