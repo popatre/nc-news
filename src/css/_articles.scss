@@ -84,18 +84,22 @@
             display: flex;
             flex-direction:column;
             gap: 2em;
-            padding: 2em 6em;
+            padding: 2em 1em;
             border-radius:20px;
             border: solid 5px $main-color;
+            max-width: 700px;
+            width: 100%;
+            margin: 0 1em auto;
             
 
             input {
                 border: none;
-  padding: 4px;
+  padding: 15px;
   outline: none;
   font-size: 1.2em;
   font-family: inherit;
   resize: none;
+  width: 100%;
        
             }
 
@@ -103,11 +107,12 @@
                 // background: #fadd84;
                 width: 100%;
                 border: none;
-                padding: 4px;
+                padding: 30px;
                 outline: none;
                 font-size: 1.2em;
                 font-family: inherit;
                 resize: none;
+                padding-bottom: 1em;
             }
             
         }
