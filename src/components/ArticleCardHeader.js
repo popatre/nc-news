@@ -7,7 +7,7 @@ export default function ArticleCardHeader({ author, created, topic, title }) {
         <CardHeader
             avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label="author">
-                    {author[0].toUpperCase()}
+                    {author.slice(0, 1).toUpperCase()}
                 </Avatar>
             }
             title={title}

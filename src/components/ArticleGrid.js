@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 
-import { getAllArticles } from "../utils/api";
+import { getAllArticles, totalCount } from "../utils/api";
 
 import ErrorPage from "../views/ErrorPage";
 import Loading from "./Loading";
 import Grid from "@mui/material/Grid";
 
-export default function ArticleGrid({ topic, sort }) {
+export default function ArticleGrid({ topic, sort, page }) {
     const [articles, setArticles] = useState([]);
 
     const [error, setError] = useState(null);
@@ -15,7 +15,7 @@ export default function ArticleGrid({ topic, sort }) {
 
     useEffect(() => {
         setIsLoading(true);
-        getAllArticles(topic, sort)
+        getAllArticles(topic, sort, page)
             .then((articles) => {
                 setIsLoading(false);
                 setArticles(articles);
@@ -26,7 +26,7 @@ export default function ArticleGrid({ topic, sort }) {
                 const errorCode = err.response.status;
                 setError({ errorCode, message });
             });
-    }, [topic, sort]);
+    }, [topic, sort, page]);
 
     if (isLoading) return <Loading />;
     if (error)

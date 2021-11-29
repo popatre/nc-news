@@ -10,11 +10,22 @@ export const getAllTopics = () => {
     });
 };
 
-export const getAllArticles = (topic, sort_by) => {
+export const getAllArticles = (topic, sort_by, p) => {
     return newsApi
-        .get("/articles", { params: { topic: topic, sort_by: sort_by } })
+        .get("/articles", {
+            params: { topic: topic, sort_by: sort_by, p: p },
+        })
         .then((res) => {
             return res.data.articles;
+        });
+};
+export const totalCount = (topic, sort_by, limit = 1000) => {
+    return newsApi
+        .get("/articles", {
+            params: { topic: topic, sort_by: sort_by, limit: limit },
+        })
+        .then((res) => {
+            return res.data.articles.length;
         });
 };
 
