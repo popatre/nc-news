@@ -86,3 +86,13 @@ export const postArticle = (postObj) => {
 export const deleteArticle = (articleId) => {
     return newsApi.delete(`/articles/${articleId}`);
 };
+
+export const getComments = (limit = 1000) => {
+    return newsApi
+        .get(`/comments`, {
+            params: { limit: limit },
+        })
+        .then((res) => {
+            return res.data.comments;
+        });
+};

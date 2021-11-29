@@ -10,6 +10,7 @@ import ArticleView from "./views/ArticleView";
 import ErrorPage from "./views/ErrorPage";
 import UserArticles from "./views/UserArticles";
 import PostArticle from "./views/PostArticle";
+import UserComments from "./views/UserComments";
 
 function App() {
     const [topics, setTopics] = useState([]);
@@ -55,6 +56,10 @@ function App() {
                     <Route
                         path="/account/:username/articles"
                         element={<UserArticles />}
+                    />
+                    <Route
+                        path="/account/:username/comments"
+                        element={<UserComments />}
                     />
                     <Route
                         path="/topics/:slug/post"

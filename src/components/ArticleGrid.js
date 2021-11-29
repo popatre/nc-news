@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ArticleCard from "./ArticleCard";
 
-import { getAllArticles, totalCount } from "../utils/api";
+import { getAllArticles } from "../utils/api";
 
 import ErrorPage from "../views/ErrorPage";
 import Loading from "./Loading";

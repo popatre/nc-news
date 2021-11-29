@@ -54,7 +54,11 @@ export default function CommentsCardBody({
                     aria-label="votes"
                     disabled={user.username === author || !user.username}
                 >
-                    <VotesButton votes={votes + addVote} />
+                    {!isError ? (
+                        <VotesButton votes={votes + addVote} />
+                    ) : (
+                        <p>something went wrong</p>
+                    )}
                 </IconButton>
                 {author === user.username ? (
                     <DeleteButton id={comment_id} setList={setComments} />

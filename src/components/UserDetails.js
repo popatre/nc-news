@@ -62,7 +62,10 @@ export default function UserDetails({ user }) {
                         </Link>
                     </Button>
                     <Button style={{ margin: "0 auto", display: "flex" }}>
-                        <Link className="account__details__links" to="/">
+                        <Link
+                            className="account__details__links"
+                            to={`/account/${userInfo.username}/comments`}
+                        >
                             My Comments
                         </Link>
                     </Button>
