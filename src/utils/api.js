@@ -96,3 +96,9 @@ export const getComments = (limit = 1000) => {
             return res.data.comments;
         });
 };
+
+export const postTopic = (postObj) => {
+    return newsApi.post(`/topics`, postObj).then((res) => {
+        return res.data.topic;
+    });
+};

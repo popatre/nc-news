@@ -11,9 +11,11 @@ import ErrorPage from "./views/ErrorPage";
 import UserArticles from "./views/UserArticles";
 import PostArticle from "./views/PostArticle";
 import UserComments from "./views/UserComments";
+import TopicPost from "./views/TopicPost";
 
 function App() {
     const [topics, setTopics] = useState([]);
+    const [newTopic, setNewTopic] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -26,7 +28,7 @@ function App() {
             .catch((err) => {
                 // const error = err.response.status;
             });
-    }, []);
+    }, [newTopic]);
 
     return (
         <BrowserRouter>
@@ -64,6 +66,15 @@ function App() {
                     <Route
                         path="/topics/:slug/post"
                         element={<PostArticle />}
+                    />
+                    <Route
+                        path="/topics/create"
+                        element={
+                            <TopicPost
+                                setTopics={setTopics}
+                                setNewTopic={setNewTopic}
+                            />
+                        }
                     />
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>

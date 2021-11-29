@@ -6,7 +6,7 @@ import { UserContext } from "./contexts/UserContext";
 import FaceIcon from "@mui/icons-material/Face";
 
 export default function NavbarComp() {
-    const { user } = useContext(UserContext);
+    const { user, isLoggedIn } = useContext(UserContext);
 
     return (
         <nav>
@@ -24,13 +24,15 @@ export default function NavbarComp() {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Container>
                         <Nav className="justify-content-end nav__links">
-                            {/* <Nav.Item>
-                                
-                                <Link to="/newTopic" className="Nav__link">
-                                    Add a topic
+                            {!isLoggedIn ? null : (
+                                <Link
+                                    to="/topics/create"
+                                    className="Nav__link--signedin"
+                                >
+                                    Post a new topic
                                 </Link>
-                        
-                            </Nav.Item> */}
+                            )}
+
                             {!!user.username ? (
                                 <Nav.Item>
                                     <Link
