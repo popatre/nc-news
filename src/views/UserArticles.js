@@ -26,9 +26,9 @@ export default function UserArticles() {
     if (isLoading) return <Loading />;
 
     return (
-        <section className="account__articles">
+        <section className="account__articles container">
             <header>
-                <h2> Articles by {username}</h2>
+                <h2 className="account__username__title"> Articles by {username}</h2>
             </header>
             {article.map((article) => {
                 return (

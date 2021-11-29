@@ -116,13 +116,15 @@ export default function ArticleCard({
                     ) : (
                         <CommentBadge commentCount={commentCount} />
                     )}
-                    {author === user.username ? (
+                    
+                </IconButton>
+                
+                {author === user.username ? (
                         <DeleteArticleButton
                             id={article_id}
                             setList={setArticles}
                         />
                     ) : null}
-                </IconButton>
 
                 {!!showContent ? null : (
                     <ExpandMore
