@@ -79,7 +79,7 @@ These instructions will help you to get a copy of NC News up and running on your
 
 ### Installing
 
-Ensure you have [Node.js](https://nodejs.org/en/download/) installed
+Ensure you have [Node.js](https://nodejs.org/en/download/) version 14.16.0 (or higher) installed
 
 Fork or clone the repository to you local machine: https://github.com/popatre/nc-news
 
