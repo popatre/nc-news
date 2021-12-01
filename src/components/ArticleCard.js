@@ -39,6 +39,7 @@ export default function ArticleCard({
     const [comments, setComments] = useState([]);
     const [addVote, setAddVote] = useState(0);
     const [isError, setIsError] = useState(null);
+    const [voted, setVoted] = useState(false);
     const { user, isLoggedIn } = useContext(UserContext);
 
     const handleExpandClick = () => {
@@ -55,6 +56,7 @@ export default function ArticleCard({
 
     const handleClick = () => {
         setIsError(false);
+        setVoted(true);
         setAddVote((prevVote) => prevVote + 1);
         incrementVote(article_id, {
             inc_votes: 1,
@@ -91,7 +93,7 @@ export default function ArticleCard({
             </CardActionArea>
             <CardActions disableSpacing>
                 <IconButton
-                    disabled={user.username === author || !isLoggedIn}
+                    disabled={user.username === author || !isLoggedIn || voted}
                     aria-label="votes"
                     onClick={handleClick}
                 >
@@ -116,15 +118,14 @@ export default function ArticleCard({
                     ) : (
                         <CommentBadge commentCount={commentCount} />
                     )}
-                    
                 </IconButton>
-                
+
                 {author === user.username ? (
-                        <DeleteArticleButton
-                            id={article_id}
-                            setList={setArticles}
-                        />
-                    ) : null}
+                    <DeleteArticleButton
+                        id={article_id}
+                        setList={setArticles}
+                    />
+                ) : null}
 
                 {!!showContent ? null : (
                     <ExpandMore

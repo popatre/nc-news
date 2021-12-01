@@ -23,9 +23,11 @@ export default function CommentsCardBody({
     const { user } = useContext(UserContext);
     const [isError, setIsError] = useState(false);
     const [addVote, setAddVote] = useState(0);
+    const [voted, setVoted] = useState(false);
 
     const handleClick = () => {
         setIsError(false);
+        setVoted(true);
         setAddVote((prevVote) => prevVote + 1);
         incrementCommentsVote(comment_id, {
             inc_votes: 1,
@@ -52,7 +54,9 @@ export default function CommentsCardBody({
                 <IconButton
                     onClick={handleClick}
                     aria-label="votes"
-                    disabled={user.username === author || !user.username}
+                    disabled={
+                        user.username === author || !user.username || voted
+                    }
                 >
                     {!isError ? (
                         <VotesButton votes={votes + addVote} />
