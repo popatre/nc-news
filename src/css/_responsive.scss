@@ -11,8 +11,15 @@
     .article__body p {
         font-size: 1rem;
     }
+    .container {
+        width: 90%;
+    }
 }
 @include media-lg {
+    .container {
+        width: 80%;
+    }
+
     .account__details.user-display {
         width: 500px;
     }

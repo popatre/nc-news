@@ -45,7 +45,7 @@ export default function ArticleGrid({ topic, sort, page }) {
                                 item
                                 style={{ display: "flex" }}
                                 xs={12}
-                                sm={12}
+                                sm={6}
                                 md={6}
                                 lg={4}
                             >

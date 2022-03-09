@@ -10,8 +10,6 @@ export default function SortBy({
 }) {
     let query = searchParams.get("sort_by");
 
-    console.log(query, "*********");
-
     useEffect(() => {
         if (query !== null) {
             setSort(query);
@@ -20,7 +18,6 @@ export default function SortBy({
 
     const handleChange = (e) => {
         const { name } = e.target;
-
         // setSort(name);
         setSearchParams({ sort_by: name });
         // setSortLabel(searchParams.get("sort_by"));
