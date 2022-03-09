@@ -6,7 +6,7 @@ import SortBy from "../components/SortBy";
 import TopicSelect from "../components/TopicSelect";
 import ArticleGrid from "../components/ArticleGrid";
 import PostButton from "../components/Button";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { UserContext } from "../contexts/UserContext";
 import Pagination from "@mui/material/Pagination";
@@ -14,12 +14,15 @@ import Stack from "@mui/material/Stack";
 import { totalCount } from "../utils/api";
 
 export default function Articles({ topics }) {
+    const [searchParams, setSearchParams] = useSearchParams({});
     const [sort, setSort] = useState();
     const [sortLabel, setSortLabel] = useState();
-    const { slug } = useParams();
     const { isLoggedIn } = useContext(UserContext);
     const [total, setTotal] = useState(0);
     const [page, setPage] = useState(1);
+
+    const { slug } = useParams();
+
     let topic = "";
     if (slug === "all") {
         topic = undefined;
@@ -57,6 +60,8 @@ export default function Articles({ topics }) {
                         setSort={setSort}
                         setSortLabel={setSortLabel}
                         sortLabel={sortLabel}
+                        setSearchParams={setSearchParams}
+                        searchParams={searchParams}
                     />
                 </Grid>
                 <Grid item xs={12} style={{ textAlign: "center" }}>

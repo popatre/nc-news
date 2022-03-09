@@ -1,17 +1,35 @@
 import { Dropdown } from "react-bootstrap";
+import { useEffect } from "react";
 
-export default function SortBy({ setSort, setSortLabel, sortLabel }) {
+export default function SortBy({
+    setSort,
+    setSortLabel,
+    sortLabel,
+    setSearchParams,
+    searchParams,
+}) {
+    let query = searchParams.get("sort_by");
+
+    console.log(query, "*********");
+
+    useEffect(() => {
+        if (query !== null) {
+            setSort(query);
+        }
+    }, [query]);
+
     const handleChange = (e) => {
-        const { name, innerText } = e.target;
+        const { name } = e.target;
 
-        setSortLabel(innerText);
-        setSort(name);
+        // setSort(name);
+        setSearchParams({ sort_by: name });
+        // setSortLabel(searchParams.get("sort_by"));
     };
 
     return (
         <Dropdown>
             <Dropdown.Toggle variant="warning" id="dropdown-basic">
-                {!!sortLabel ? sortLabel : "Sort by:"}
+                {query !== null ? query : "Sort by:"}
             </Dropdown.Toggle>
             <Dropdown.Menu onClick={handleChange}>
                 <Dropdown.Item name="created_at" value="created_at">
