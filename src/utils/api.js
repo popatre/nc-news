@@ -10,10 +10,11 @@ export const getAllTopics = () => {
     });
 };
 
-export const getAllArticles = (topic, sort_by, p) => {
+export const getAllArticles = (topic, sort_by, p, source) => {
     return newsApi
         .get("/articles", {
             params: { topic: topic, sort_by: sort_by, p: p },
+            cancelToken: source.token,
         })
         .then((res) => {
             return res.data.articles;

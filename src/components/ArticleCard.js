@@ -22,6 +22,7 @@ import ArticleCardHeader from "./ArticleCardHeader";
 import { ExpandMore } from "../utils/ExpandMore";
 import CommentForm from "./CommentForm";
 import DeleteArticleButton from "./DeleteArticleButton";
+import { useParams } from "react-router-dom";
 
 export default function ArticleCard({
     author,
@@ -46,8 +47,10 @@ export default function ArticleCard({
         setExpanded(!expanded);
     };
 
+    console.log();
+    const checker = useParams().article_id;
     useEffect(() => {
-        if (article_id) {
+        if (checker) {
             getCommentsByArticleId(article_id).then((articles) => {
                 setComments(articles);
             });

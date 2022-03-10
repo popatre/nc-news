@@ -6,8 +6,11 @@ import { getAllArticles } from "../utils/api";
 import ErrorPage from "../views/ErrorPage";
 import Loading from "./Loading";
 import Grid from "@mui/material/Grid";
+import axios from "axios";
 
 export default function ArticleGrid({ topic, sort, page }) {
+    const CancelToken = axios.CancelToken;
+    const source = CancelToken.source();
     const [articles, setArticles] = useState([]);
 
     const [error, setError] = useState(null);
@@ -15,16 +18,24 @@ export default function ArticleGrid({ topic, sort, page }) {
 
     useEffect(() => {
         setIsLoading(true);
-        getAllArticles(topic, sort, page)
+        getAllArticles(topic, sort, page, source)
             .then((articles) => {
                 setIsLoading(false);
                 setArticles(articles);
             })
             .catch((err) => {
-                setIsLoading(false);
-                const message = err.response.data.message;
-                const errorCode = err.response.status;
-                setError({ errorCode, message });
+                if (axios.isCancel(err)) {
+                    console.log("successfully aborted");
+                } else {
+                    setIsLoading(false);
+                    const message = err.response.data.message;
+                    const errorCode = err.response.status;
+                    setError({ errorCode, message });
+                }
+                return () => {
+                    // cancel the request before component unmounts
+                    source.cancel();
+                };
             });
     }, [topic, sort, page]);
 
