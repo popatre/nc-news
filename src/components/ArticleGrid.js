@@ -45,6 +45,13 @@ export default function ArticleGrid({ topic, sort, page }) {
             <ErrorPage errorCode={error.errorCode} message={error.message} />
         );
 
+    if (articles.length === 0)
+        return (
+            <p className="article__noDisplay">
+                No articles to display. Why not be the first to post one?
+            </p>
+        );
+
     return (
         <main>
             <div className="article-card">
