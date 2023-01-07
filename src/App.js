@@ -12,6 +12,7 @@ import UserArticles from "./views/UserArticles";
 import PostArticle from "./views/PostArticle";
 import UserComments from "./views/UserComments";
 import TopicPost from "./views/TopicPost";
+import Footer from "./views/Footer";
 
 function App() {
     const [topics, setTopics] = useState([]);
@@ -78,6 +79,7 @@ function App() {
                     />
                     <Route path="*" element={<ErrorPage />} />
                 </Routes>
+                <Footer />
             </div>
         </BrowserRouter>
     );
