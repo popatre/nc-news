@@ -44,6 +44,7 @@ export default function UserSelect({ user, setUser }) {
                             <UserCard
                                 key={user.username}
                                 username={user.username}
+                                avatar={user.avatar_url}
                                 loginUser={LoginUser}
                             />
                         </Grid>

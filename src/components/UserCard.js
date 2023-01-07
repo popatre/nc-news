@@ -8,7 +8,7 @@ import {
 
 import PersonIcon from "@mui/icons-material/Person";
 
-export default function UserCard({ username, loginUser }) {
+export default function UserCard({ username, loginUser, avatar }) {
     const handleClick = () => {
         loginUser(username);
     };
@@ -19,7 +19,7 @@ export default function UserCard({ username, loginUser }) {
                 onClick={handleClick}
             >
                 <CardMedia className="account__select-icon" alt="user-icon">
-                    <PersonIcon />
+                    <img className="account__avatar" src={avatar} />
                 </CardMedia>
                 <CardContent>
                     <Typography

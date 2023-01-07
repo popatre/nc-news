@@ -48,16 +48,21 @@
         text-align: center;
         padding: 1.5em 0;
     }
+
+    &__avatar {
+        max-width: 100%;
+        width: 30px;
+    }
 }
 
 .account__details__links {
     text-align: center;
 }
 
-.css-bhp9pd-MuiPaper-root-MuiCard-root{
+.css-bhp9pd-MuiPaper-root-MuiCard-root {
     margin: 1em 0;
 }
-.account__username__title{
-    text-align:center;
+.account__username__title {
+    text-align: center;
     margin: 1.5em 0;
 }
