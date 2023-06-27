@@ -15,7 +15,7 @@ This front end application interacts with the back end NC News RESTful API creat
 
 Details of the API may be found on Github: https://github.com/popatre/nc_news
 
-A hosted version of the API can be found at: https://jmg-nc-news.herokuapp.com/api
+A hosted version of the API can be found at: https://nc-news-ts.onrender.com/api
 
 ## Using NC News
 
