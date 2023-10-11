@@ -99,6 +99,8 @@ If successful, your browser should open http://localhost:3000.
 
 -   React.js
 -   Sass
+
+  Update readme
 -   Material UI
 -   React bootstrap
 -   Axios
